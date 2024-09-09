@@ -303,4 +303,28 @@ To submit the job to SLURM, use the following command:
 sbatch combine_gvcfs.sh
 
 
+## Joint Genotyping Script
+
+This script performs joint genotyping on combined GVCF files to generate raw variant calls using GATK's `GenotypeGVCFs`.
+
+### Script Details
+
+- **jointgenotyping.sh**: A SLURM script to perform joint genotyping on GVCF files using GATK's `GenotypeGVCFs`.
+
+### Replaceable Placeholders:
+
+- `<output_directory>`: Directory where you want to save output and error files.
+- `<time_limit>`: Time limit for the job (e.g., `46:00:00`).
+- `<memory_limit>`: Memory limit per node (e.g., `32G`).
+- `<account_name>`: Your SLURM account name.
+- `<gatk_version>`: The version of GATK you are using.
+- `<reference_directory>`: Directory containing the reference genome file.
+- `<reference_genome>`: Name of the reference genome file.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch jointgenotyping.sh
 
