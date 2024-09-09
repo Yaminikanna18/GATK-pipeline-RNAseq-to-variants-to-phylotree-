@@ -249,3 +249,29 @@ To submit the job to SLURM, use the following command:
 ```bash
 sbatch split_ncigars.sh <input_bam> <output_bam> <reference>
 
+## HaplotypeCaller Script
+
+This script uses GATK's `HaplotypeCaller` to call variants and generate a GVCF file.
+
+### Script Details
+
+- **haplotypecaller.sh**: A SLURM script to run GATK's `HaplotypeCaller` on BAM files.
+
+### Replaceable Placeholders:
+
+- `<output_directory>`: Directory where you want to save output and error files.
+- `<time_limit>`: Time limit for the job (e.g., `2:00:00`).
+- `<memory_limit>`: Memory limit per node (e.g., `32G`).
+- `<account_name>`: Your SLURM account name.
+- `<gatk_version>`: The version of GATK you are using.
+- `<reference_genome>`: Path to the reference genome file.
+- `<input_bam>`: Path to the input BAM file.
+- `<output_gvcf>`: Path to save the output GVCF file.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch haplotypecaller.sh <input_bam> <output_gvcf> <reference_genome>
+
