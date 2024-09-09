@@ -123,3 +123,82 @@ This repository contains a SLURM script for converting FASTQ files to unmapped B
 
 Make sure to replace all placeholders with your actual values before running the script.
 
+
+## STAR Genome Indexing Script
+
+This script generates a STAR genome index from a genome FASTA file and an annotation GTF file.
+
+### Script Details
+
+- **star_indexing.sh**: A SLURM script to create a STAR genome index.
+
+### Replaceable Placeholders:
+
+- `<account_name>`: Your SLURM account name.
+- `<your_conda_environment>`: The name of your Conda environment where STAR is installed.
+- `<working_directory>`: The directory where you will store the STAR index and where your genome files are located.
+- `<genome_fasta_file>`: The path to your genome FASTA file.
+- `<gtf_file>`: The path to your genome GTF file.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch star_indexing.sh
+
+
+## STAR Alignment Script
+
+This script performs alignment of paired-end FASTQ files using STAR aligner. Before using the script, replace the placeholders with your specific values.
+
+### Script Details
+
+- **star_align.sh**: A SLURM script to perform alignment of paired-end FASTQ files using STAR.
+
+### Replaceable Placeholders:
+
+- `<job_name>`: Your SLURM job name.
+- `<num_cpus>`: Number of CPU cores per task.
+- `<time_limit>`: Time limit for the job (e.g., `46:00:00`).
+- `<memory_limit>`: Memory required (e.g., `68G`).
+- `<account_name>`: Your SLURM account name.
+- `<path_to_conda.sh>`: Path to your Conda initialization script.
+- `<your_conda_environment>`: Name of your Conda environment.
+- `<working_directory>`: Directory for working files.
+- `<index_directory>`: Directory containing STAR index files.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch star_align.sh <read1> <read2>
+
+
+## BAM File Merging Script
+
+This script merges unmapped and aligned BAM files using Picard's `MergeBamAlignment` tool.
+
+### Script Details
+
+- **merge_bam_alignment.sh**: A SLURM script to merge unmapped and aligned BAM files into a single BAM file.
+
+### Replaceable Placeholders:
+
+- `<job_name>`: Your SLURM job name.
+- `<output_directory>`: Directory where you want to save output and error files.
+- `<cpus_per_task>`: Number of CPU cores per task (e.g., `4`).
+- `<memory_limit>`: Memory limit per node (e.g., `68G`).
+- `<time_limit>`: Time limit for the job (e.g., `24:00:00`).
+- `<account_name>`: Your SLURM account name.
+- `<conda_environment>`: Name of the Conda environment to activate.
+- `<reference_fasta>`: Path to the reference FASTA file.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch merge_bam_alignment.sh <unmapped_bam> <aligned_bam> <output_bam>
+
