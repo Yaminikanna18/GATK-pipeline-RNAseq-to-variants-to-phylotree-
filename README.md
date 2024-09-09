@@ -411,3 +411,30 @@ To submit the job to SLURM, use the following command:
 sbatch mafft_alignment.sh
 
 
+## RAxML Phylogenetic Tree Construction
+
+This script performs phylogenetic tree construction using RAxML.
+
+### Script Details
+
+- **raxml_analysis.sh**: A SLURM script to run RAxML for constructing a phylogenetic tree.
+
+### Replaceable Placeholders:
+
+- `<job_name>`: Name of your SLURM job.
+- `<output_directory>`: Directory where you want to save output files.
+- `<account_name>`: Your SLURM account name.
+- `<openmpi_version>`: The version of OpenMPI you are using.
+- `<raxml_version>`: The version of RAxML you are using.
+- `<input_fasta>`: The input FASTA file.
+- `<output_tree_name>`: Name of the output tree file.
+- `<random_seed>`: Random seed for RAxML.
+- `<bootstrap_replicates>`: Number of bootstrap replicates.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch raxml_analysis.sh
+
