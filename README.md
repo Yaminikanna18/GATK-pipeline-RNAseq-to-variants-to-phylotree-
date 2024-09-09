@@ -226,3 +226,26 @@ To submit the job to SLURM, use the following command:
 ```bash
 sbatch mark_duplicates.sh <input_bam> <output_bam> <metrics_file>
 
+## SplitNCigarReads Script
+
+This script uses GATK's `SplitNCigarReads` to split reads with N's in their CIGAR string.
+
+### Script Details
+
+- **split_ncigars.sh**: A SLURM script to run GATK's `SplitNCigarReads` on BAM files.
+
+### Replaceable Placeholders:
+
+- `<output_directory>`: Directory where you want to save output and error files.
+- `<memory_limit>`: Memory limit per node (e.g., `32G`).
+- `<time_limit>`: Time limit for the job (e.g., `10:00:00`).
+- `<account_name>`: Your SLURM account name.
+- `<gatk_version>`: The version of GATK you are using.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch split_ncigars.sh <input_bam> <output_bam> <reference>
+
