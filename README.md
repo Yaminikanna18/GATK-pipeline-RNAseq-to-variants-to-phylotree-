@@ -202,3 +202,27 @@ To submit the job to SLURM, use the following command:
 ```bash
 sbatch merge_bam_alignment.sh <unmapped_bam> <aligned_bam> <output_bam>
 
+
+## MarkDuplicates Script
+
+This script marks duplicate reads in BAM files using Picard's `MarkDuplicates` tool.
+
+### Script Details
+
+- **mark_duplicates.sh**: A SLURM script to mark duplicate reads in BAM files.
+
+### Replaceable Placeholders:
+
+- `<output_directory>`: Directory where you want to save output and error files.
+- `<memory_limit>`: Memory limit per node (e.g., `32G`).
+- `<time_limit>`: Time limit for the job (e.g., `10:00:00`).
+- `<account_name>`: Your SLURM account name.
+- `<conda_environment>`: Name of the Conda environment to activate.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch mark_duplicates.sh <input_bam> <output_bam> <metrics_file>
+
