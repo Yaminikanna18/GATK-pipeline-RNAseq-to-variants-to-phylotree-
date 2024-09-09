@@ -356,3 +356,58 @@ To submit the job to SLURM, use the following command:
 ```bash
 sbatch variant_filtration.sh
 
+
+## VCF to Table Conversion Script
+
+This script converts a VCF file into a tabular format using GATK.
+
+### Script Details
+
+- **vcf_to_tab.sh**: A SLURM script to convert a VCF file into a tabular format using GATK's `VariantsToTable` command.
+
+### Replaceable Placeholders:
+
+- `<output_directory>`: Directory where you want to save output and error files.
+- `<memory_limit>`: Memory limit per node (e.g., `32G`).
+- `<time_limit>`: Time limit for the job (e.g., `2:00:00`).
+- `<account_name>`: Your SLURM account name.
+- `<gatk_version>`: The version of GATK you are using.
+- `<input_vcf>`: Path to the input VCF file.
+- `<output_table>`: Path for the output tabular file.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch vcf_to_tab.sh
+
+Once you have converted the VCF file to a tabular format, you will need to process this table to generate a FASTA file. This involves several steps. First, you should clean the table by removing any unwanted symbols or special characters that may be present. Next, convert any ambiguous nucleotide representations to IUPAC codes, which are used to denote multiple possible nucleotides at a given position. Finally, use the cleaned table with IUPAC codes to generate a FASTA file. Ensure that you have the appropriate tools or scripts to perform these conversions and verify that your final FASTA file meets your requirements for subsequent analyses.
+
+## MAFFT Alignment Script
+
+This script performs multiple sequence alignment using the MAFFT tool. The alignment is performed on a FASTA file containing variant sequences, preparing the data for subsequent phylogenetic analysis.
+
+### Script Details
+
+- **mafft_alignment.sh**: A SLURM script to align sequences in a FASTA file using MAFFT.
+
+### Replaceable Placeholders:
+
+- `<job_name>`: Your SLURM job name.
+- `<output_directory>`: The directory where you want to save output and error files.
+- `<memory_limit>`: Memory limit per node (e.g., `32G`).
+- `<time_limit>`: Time limit for the job (e.g., `2:00`).
+- `<account_name>`: Your SLURM account name.
+- `<mafft_version>`: The version of MAFFT you are using.
+- `<input_fasta>`: Path to the input FASTA file.
+- `<output_alignment>`: Path for the output aligned FASTA file.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch mafft_alignment.sh
+
+
