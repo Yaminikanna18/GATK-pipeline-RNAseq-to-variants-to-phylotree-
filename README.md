@@ -328,3 +328,31 @@ To submit the job to SLURM, use the following command:
 ```bash
 sbatch jointgenotyping.sh
 
+## Variant Filtration Script
+
+This script filters VCF files to remove indels, apply genotype quality and depth filters, and manage missing data using `bcftools`.
+
+### Script Details
+
+- **variant_filtration.sh**: A SLURM script to filter variants from a VCF file using `bcftools`.
+
+### Replaceable Placeholders:
+
+- `<output_directory>`: Directory where you want to save output and error files.
+- `<memory_limit>`: Memory limit per node (e.g., `32G`).
+- `<time_limit>`: Time limit for the job (e.g., `24:00:00`).
+- `<account_name>`: Your SLURM account name.
+- `<bcftools_version>`: The version of `bcftools` you are using.
+- `<input_vcf>`: Path to the input VCF file.
+- `<temp_vcf_indel_removed>`: Path for the temporary VCF file with indels removed.
+- `<temp_vcf_gq_filtered>`: Path for the temporary VCF file with genotype quality filtered.
+- `<temp_vcf_dp_filtered>`: Path for the temporary VCF file with depth filtered.
+- `<output_vcf>`: Path to the final filtered VCF file.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch variant_filtration.sh
+
