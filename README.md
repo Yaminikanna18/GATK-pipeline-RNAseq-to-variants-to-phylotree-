@@ -275,3 +275,32 @@ To submit the job to SLURM, use the following command:
 ```bash
 sbatch haplotypecaller.sh <input_bam> <output_gvcf> <reference_genome>
 
+
+## Combine GVCFs Script
+
+This script combines multiple GVCF files into a single GVCF file using GATK's `CombineGVCFs`.
+
+### Script Details
+
+- **combine_gvcfs.sh**: A SLURM script to combine GVCF files into a single GVCF file using GATK's `CombineGVCFs`.
+
+### Replaceable Placeholders:
+
+- `<output_directory>`: Directory where you want to save output and error files.
+- `<time_limit>`: Time limit for the job (e.g., `46:00:00`).
+- `<memory_limit>`: Memory limit per node (e.g., `32G`).
+- `<account_name>`: Your SLURM account name.
+- `<gatk_version>`: The version of GATK you are using.
+- `<gvcf_directory>`: Directory containing GVCF files to be combined.
+- `<reference_directory>`: Directory containing the reference genome file.
+- `<reference_genome>`: Name of the reference genome file.
+
+### Running the Script
+
+To submit the job to SLURM, use the following command:
+
+```bash
+sbatch combine_gvcfs.sh
+
+
+
